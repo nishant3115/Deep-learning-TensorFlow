@@ -1,3 +1,5 @@
+" Script for fashion mnist classification task using tensorflow"
+
 # load packages
 import numpy as np
 import tensorflow as tf
