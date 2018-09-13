@@ -1,12 +1,12 @@
 from tensorflow import keras
 
 
-def alexnet():
+def alexnet(img_size, num_classes):
     # Sequential model
     model = keras.Sequential()
 
     # 1st Convolutional Layer
-    model.add(keras.layers.Conv2D(filters=96, input_shape = (224,224,3), kernel_size=(11, 11),
+    model.add(keras.layers.Conv2D(filters=96, input_shape = img_size, kernel_size=(11, 11),
                                   strides=(4, 4), padding='valid'))
     model.add(keras.layers.Activation('relu'))
     # Pooling
@@ -69,7 +69,7 @@ def alexnet():
     model.add(keras.layers.BatchNormalization())
 
     # Output Layer
-    model.add(keras.layers.Dense(17))
+    model.add(keras.layers.Dense(num_classes))
     model.add(keras.layers.Activation('softmax'))
 
     return model

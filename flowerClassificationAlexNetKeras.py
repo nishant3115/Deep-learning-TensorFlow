@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 (data, labels) = oxflowerData.load_data(one_hot=True)
 
 # import Alexnet model
-nn_model = alexnet()
+nn_model = alexnet(data.shape[1:], labels.shape[1])
 
 # Compile model
 nn_model.compile(optimizer=tf.train.AdamOptimizer(), loss='categorical_crossentropy', metrics=['accuracy'])
